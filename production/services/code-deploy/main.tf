@@ -50,3 +50,6 @@ data "aws_alb_target_group" "prd-aip-services-metric-tg" {
   arn = "arn:aws:elasticloadbalancing:ap-northeast-2:618467231866:targetgroup/prd-aip-services-metric-tg/6a79be12f5ca1ca0"
 }
 
+data "aws_iam_role" "prd-com-codedeploy-role" {
+  name               = "prd-com-codedeploy-role"
+}
