@@ -7,6 +7,10 @@ resource "aws_launch_template" "prd-aip-service-lt" {
   key_name        = var.keypair-map.prd-aip-keypair
   vpc_security_group_ids = [ var.security-group-map.prd-aip-mgmt-sg, var.security-group-map.prd-aip-service-sg ]
 
+  iam_instance_profile {
+    name = "prd-com-ec2-mgmt-role"
+  }
+
   block_device_mappings {
     device_name = "/dev/sda1"
     ebs {
@@ -41,6 +45,10 @@ resource "aws_launch_template" "prd-aip-smartall-api-lt" {
   key_name        = var.keypair-map.prd-aip-keypair
   vpc_security_group_ids = [ var.security-group-map.prd-aip-mgmt-sg, var.security-group-map.prd-aip-smartall-api-sg ]
 
+  iam_instance_profile {
+    name = "prd-com-ec2-mgmt-role"
+  }
+
   block_device_mappings {
     device_name = "/dev/sda1"
     ebs {
@@ -67,16 +75,16 @@ resource "aws_launch_template" "prd-aip-smartall-api-lt" {
 }
 
 
-
-
-
-
 resource "aws_launch_template" "prd-aip-bookclub-api-lt" {
   name            = "prd-aip-bookclub-api-lt"
   image_id        = var.prd-aip-ami_id
   instance_type   = "t3.large"
   key_name        = var.keypair-map.prd-aip-keypair
   vpc_security_group_ids = [ var.security-group-map.prd-aip-mgmt-sg, var.security-group-map.prd-aip-bookclub-api-sg ]
+
+  iam_instance_profile {
+    name = "prd-com-ec2-mgmt-role"
+  }
 
   block_device_mappings {
     device_name = "/dev/sda1"
@@ -109,6 +117,10 @@ resource "aws_launch_template" "prd-aip-stream-lt" {
   instance_type   = "t3.small"
   key_name        = var.keypair-map.prd-aip-keypair
   vpc_security_group_ids = [ var.security-group-map.prd-aip-mgmt-sg, var.security-group-map.prd-aip-stream-sg ]
+
+  iam_instance_profile {
+    name = "prd-com-ec2-mgmt-role"
+  }
 
   block_device_mappings {
     device_name = "/dev/sda1"

@@ -10,7 +10,7 @@ resource "aws_autoscaling_group" "prd-aip-stream-ag" {
 
   launch_template {
     id      = aws_launch_template.prd-aip-stream-lt.id
-    version = "$Default"
+    version = "$Latest"
   }
 
   enabled_metrics = [ "GroupInServiceInstances", "GroupMaxSize", "GroupStandbyInstances",
@@ -41,7 +41,7 @@ resource "aws_autoscaling_group" "prd-aip-bookclub-api-ag" {
 
   launch_template {
     id      = aws_launch_template.prd-aip-bookclub-api-lt.id
-    version = "$Default"
+    version = "$Latest"
   }
 
   enabled_metrics = [ "GroupTerminatingInstances", "GroupMinSize", "GroupTotalInstances",
@@ -75,7 +75,7 @@ resource "aws_autoscaling_group" "prd-aip-smartall-api-ag" {
 
   launch_template {
     id      = aws_launch_template.prd-aip-smartall-api-lt.id
-    version = "$Default"
+    version = "$Latest"
   }
 
   enabled_metrics = [ "GroupMaxSize", "GroupStandbyInstances", "GroupPendingInstances",
@@ -111,7 +111,7 @@ resource "aws_autoscaling_group" "prd-aip-service-ag" {
 
   launch_template {
     id      = aws_launch_template.prd-aip-service-lt.id
-    version = "$Default"
+    version = "$Latest"
   }
 
   enabled_metrics = [ "GroupTerminatingInstances", "GroupMinSize", "GroupTotalInstances",
