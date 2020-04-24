@@ -26,6 +26,8 @@ pipeline {
               sh 'ls -al'
             }
 
+            sh '''date \'+%Ymd\'
+'''
           }
         }
 
