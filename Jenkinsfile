@@ -10,5 +10,27 @@ pipeline {
       }
     }
 
+    stage('Stage002') {
+      parallel {
+        stage('Stage002') {
+          steps {
+            echo 'hello'
+            s3Download(file: 's3file', bucket: 's3-bucket', path: '/parent-path/yyyymmdd')
+          }
+        }
+
+        stage('Stage003') {
+          steps {
+            dir(path: 'target') {
+              echo 'hello'
+              sh 'ls -al'
+            }
+
+          }
+        }
+
+      }
+    }
+
   }
 }
