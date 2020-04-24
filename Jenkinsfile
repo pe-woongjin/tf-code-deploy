@@ -15,7 +15,6 @@ pipeline {
         stage('Stage002') {
           steps {
             echo 'hello'
-            s3Download(file: 's3file', bucket: 's3-bucket', path: '/parent-path/yyyymmdd')
           }
         }
 
@@ -28,6 +27,7 @@ pipeline {
 
             sh '''date \'+%Ymd\'
 '''
+            sh 'local -a'
           }
         }
 
