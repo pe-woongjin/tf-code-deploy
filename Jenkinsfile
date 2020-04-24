@@ -27,7 +27,9 @@ pipeline {
 
             sh '''date \'+%Ymd\'
 '''
-            sh 'local -a'
+            sh '''locale -a
+ls
+echo "hello world"'''
           }
         }
 
